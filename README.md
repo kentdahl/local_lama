@@ -1,6 +1,7 @@
 # LocalLama
 
-TODO: Write a gem description
+Experiments in creating "local" dynamic constants a la Perl in Ruby
+
 
 ## Installation
 
@@ -18,7 +19,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Just for educational purposes for now.
+Expect things to go kah-bloey using this.
 
 ## Contributing
 
