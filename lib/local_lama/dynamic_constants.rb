@@ -21,5 +21,21 @@ module LocalLama
       nil # in case we are called without 'with_local_constants' scope(s).
     end
 
+    def convert_existing_constant_to_dynamic(const_name)
+      @local_lama_dynamic_constants ||= {}
+      @local_lama_dynamic_constants[const_name] = self.const_get(const_name)
+      remove_const(const_name)
+    end
+
+    def constants
+      (@local_lama_dynamic_constants && @local_lama_dynamic_constants.keys) || super
+    end
+
+    def self.extended(base)
+      base.constants.each do |const_name|
+        base.convert_existing_constant_to_dynamic(const_name)
+      end
+    end
+
   end
 end
